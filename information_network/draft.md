@@ -3,7 +3,7 @@
 ---
 
 ## TODO: improving writing and terminology
-- permissionless network
+- permissionless p2p network 
 - (schema/ontology + conforming data) -> information
 - relayer: caches/redistributes as-is
 - augmentor: post-processes, improves, repackages (+producer a new information)
@@ -18,16 +18,12 @@
     - claiming about economic capture of origin value, not perfect clone-prevention ???
 - negative price -> preservation incentive
 - find better term then "lineage-royalty" or "royalty"
+    - augmentation chains with cascading payments
+- make clearer the programmability problem and solution
+- micropayments per usage (fiat??? crypto???)
+- most alternatives rely on tokens/staking, not info "fitness"
+- pitch: not a better storage layer, not just a marketplace, not just a knowledge graph. but a single protocol that “locks” all four into one composable unit of value.
 
-
-## What is novel in this idea?
-- Protocol-level lineage royalty based on semantic/ontology hashing
-    - Closest thing to check: NFT/EIP-2981
-- Explicit Augumentor/Relayer/Reseller role with automatic fee composition
-    - Ocean allows new listings and datatokens, Filecoin allows retrieval markets, The Graph allows indexer earnings — but none of these make derived data resale + auto-split payments a first-class, default path. Your “three-way economic stack” feels new.
-- Negative price as a preservation/spread incentive enforcement for a information
-- "Causal power" as a protocol principle: Only information that someone wants to pay for it will persist and be preserved by the network
-    
 
 ## TODO: structure this ideas in the draft
 - Better clear definition of the problem
@@ -35,6 +31,7 @@
 - How would the "negative price to incentive preservation of information" works? Pay only once? Pay per time?
 - Clarify derived royalty mechanics based on producer/augumenter requirements such as price (it depends on their configurations, not random market numbers)
 - A sketch of how "lineage-royalties" works
+- Explain the causal information preserving properties by design
 
 
 ## TODO: problems in the draft that must be solve
@@ -57,6 +54,17 @@
         - Possible spam and/or scale problems
     - Conjectures:
         - A new role in the network for discoverability (need to figure out correct incentives)
+
+
+## What is novel in this idea?
+- Protocol-level lineage royalty based on semantic/ontology hashing
+    - Closest thing to check: NFT/EIP-2981
+- Explicit Augumentor/Relayer/Reseller role with automatic fee composition
+    - Ocean allows new listings and datatokens, Filecoin allows retrieval markets, The Graph allows indexer earnings — but none of these make derived data resale + auto-split payments a first-class, default path. Your “three-way economic stack” feels new
+    - “Information assets” can be forked, improved, and resold while keeping original producers paid. This is your cleanest novelty claim
+- Negative price as a preservation/spread incentive enforcement for a information
+- "Causal power" as a protocol principle: Only information that someone wants to pay for it will persist and be preserved by the network
+    
 
 ---
 
