@@ -23,6 +23,7 @@
 - micropayments per usage (fiat??? crypto???)
 - most alternatives rely on tokens/staking, not info "fitness"
 - pitch: not a better storage layer, not just a marketplace, not just a knowledge graph. but a single protocol that “locks” all four into one composable unit of value.
+- "the new internet of information"
 
 
 ## TODO: structure this ideas in the draft
@@ -32,6 +33,9 @@
 - Clarify derived royalty mechanics based on producer/augumenter requirements such as price (it depends on their configurations, not random market numbers)
 - A sketch of how "lineage-royalties" works
 - Explain the causal information preserving properties by design
+- Required to have schema + data + ontology (see https://chatgpt.com/share/6925a6c3-999c-8012-a4a2-489de36d3e9c) 
+    - Research on how to do it for non text data format
+    - Current solutions connecting and visualizing schema, data and ontology: https://grok.com/share/c2hhcmQtMg_43318bdc-137c-4e2b-a469-f76d3792f1b9
 
 
 ## TODO: problems in the draft that must be solve
