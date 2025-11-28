@@ -2,6 +2,41 @@
 
 What are the current alternative solutions available? How they are different from the current draft? Why aren't they fulfilling the market and social needs of such a network? Why aren't they solve all the problems described in the draft?
 
+
+---
+
+## OriginTrail Decentralized Knowledge Graph (DKG)
+- Publishes "Knowledge Assets"
+    - RDF/JSON-LD (ontologies/schemas)
+- Emphasis on structured, discoverable and verifiable information
+    - bad/inaccurate data gets rejected by the graph's consensus: if discrepancies or contradictions between nodes, the data is flagged and rejected 
+- Pay to publish data, not to access or discover it
+- No market composability (redistribution/augumentation)
+- No lineage-royalty mechanics
+- https://origintrail.io/technology/decentralized-knowledge-graph
+
+### 1. Main problem it’s trying to solve
+- Need for verifiable, structured knowledge that spans organizations and blockchains (supply chains, credentials, AI inputs)
+- Traditional knowledge graphs are siloed, mutable, and lack cryptographic provenance
+- DKG is meant to be a shared, multi-stakeholder knowledge layer where “knowledge assets” are:
+  - Linked by ontologies
+  - Anchored on chain for provenance and tamper evidence
+
+### 2. Did it solve the problem?
+- It offers a working decentralized knowledge graph with real deployments (supply chain, Web3/AI, etc.)
+- It improves provenance and discoverability for structured data in those contexts
+- It does not yet function as a global, default knowledge backbone for AI or the Web:
+  - Adoption is modest compared to centralized KGs and vector DBs
+  - Fighting misinformation / “cloned” or low-quality information is only partially addressed via provenance and reputation, not magical truth consensus
+
+### 3. Main pain points
+- Building and maintaining good ontologies and knowledge graphs is hard even centrally; DKG adds multi-chain + token economics on top
+- Incentive structure and node economics need to stay attractive; otherwise decentralization and data availability suffer
+- Limited integration with mainstream AI toolchains (most devs use Neo4j, graph DBs, or vector stores)
+- Conceptual complexity: devs must understand credentials, KGs, and cryptoeconomics, which slows adoption
+- No built-in royalty/lineage market; focuses on verifiability, not economic composability of derived knowledge
+
+
 ---
 
 ## Ocean Protocol
@@ -34,49 +69,17 @@ What are the current alternative solutions available? How they are different fro
 
 ---
 
-## OriginTrail Decentralized Knowledge Graph (DKG)
-- Publishes "Knowledge Assets" ???
-    - RDF/JSON-LD (ontologies/schemas) ???
-- Emphasis on structured, discoverable and verifiable information
-    - bad/inaccurate data gets rejected by the graph's consensus ???
-- No market composability (redistribution/augumentation)
-- No lineage-royalty mechanics
-- Q: Do they try to solve the cloning information problem?
-- https://origintrail.io/technology/decentralized-knowledge-graph
-
-### 1. Main problem it’s trying to solve
-- Need for verifiable, structured knowledge that spans organizations and blockchains (supply chains, credentials, AI inputs)
-- Traditional knowledge graphs are siloed, mutable, and lack cryptographic provenance
-- DKG is meant to be a shared, multi-stakeholder knowledge layer where “knowledge assets” are:
-  - Linked by ontologies
-  - Anchored on chain for provenance and tamper evidence
-
-### 2. Did it solve the problem?
-- It offers a working decentralized knowledge graph with real deployments (supply chain, Web3/AI, etc.)
-- It improves provenance and discoverability for structured data in those contexts
-- It does not yet function as a global, default knowledge backbone for AI or the Web:
-  - Adoption is modest compared to centralized KGs and vector DBs
-  - Fighting misinformation / “cloned” or low-quality information is only partially addressed via provenance and reputation, not magical truth consensus
-
-### 3. Main pain points
-- Building and maintaining good ontologies and knowledge graphs is hard even centrally; DKG adds multi-chain + token economics on top
-- Incentive structure and node economics need to stay attractive; otherwise decentralization and data availability suffer
-- Limited integration with mainstream AI toolchains (most devs use Neo4j, graph DBs, or vector stores)
-- Conceptual complexity: devs must understand credentials, KGs, and cryptoeconomics, which slows adoption
-- No built-in royalty/lineage market; focuses on verifiability, not economic composability of derived knowledge
-
----
-
 ## IPFS + Filecoin
 - Content-addressed data identified by hashes
     - Data is chucked, merkleized and identified by Content Identifiers (CID)
-- Open market for storage (and retrieval payment ???) by Filecoin
+- On IPFS network, free to storage and retrieve (if someone is hosting the data)
+- On IPFS+Filecoin, both upload and retrieve are paid with guarantees on data availability
     - Prices are supply-demand driven, retrieval miners compete on latency/bandwidth
 - Support relayers/caches economically (retrieval miners)
+- IPFS is completely declouped from Filecoin; but they both use same formats of data, so they're interchangeable at data level
 - No ontology/schema of data (only blobs)
 - No market composability (redistribution/augumentation)
-- Q: How does Filecoin adds the incentive layer? Can't it be tampered?
-- Q: IPFS IPNI (Network Indexer), why is that such a big thing for them?
+- *Only way to find a data into the network is by having its CID*
 - https://docs.filecoin.io/basics/how-storage-works/filecoin-and-ipfs
 - https://docs.ipfs.tech/concepts/ipni/
 
@@ -98,35 +101,6 @@ What are the current alternative solutions available? How they are different fro
 - Operating a Filecoin storage provider is hardware-intensive and protocol-complex (sealing, proofs, collateral)
 - Abuse and moderation: content addressing + replication make illegal/harmful content hard to remove; responsibility is unclear
 - No built-in semantics; everything is opaque blobs. Higher-level meaning needs separate layers
-
----
-
-## Arweave / Permaweb
-- Permanent storage (pay once store forever)
-- Optional pay-on-access (P3)
-- No ontology/schema of data (only blobs)
-- No market composability (redistribution/augumentation)
-- No discoverability
-
-### 1. Main problem it’s trying to solve
-- Long-term preservation of important content (apps, archives, legal records, NFTs) without trusting a single provider
-- Provide a “permanent web” where content and dApp frontends are immutable and always retrievable
-- Optional P3 layer adds monetized pay-per-access on top
-
-### 2. Did it solve the problem?
-- Technically: yes, it offers an immutable, permanent storage layer that is widely used in some ecosystems (e.g., Solana NFTs, archival projects)
-- Economically: “pay once, store forever” is debated; long-term sustainability depends on:
-  - AR token price
-  - Future storage cost curves
-  - Miner incentives over decades
-- It is very strong on permanence, weaker on economic certainty and ethical/regulatory handling of immutable data
-
-### 3. Main pain points
-- Potential mismatch between one-time fees and the actual long-term cost to store data forever (unfunded liabilities risk)
-- Immutability conflicts with privacy laws (e.g., right to be forgotten) and takedown obligations for harmful content
-- No native schema or semantic layer; discoverability and composition require external indexing (The Graph-style, search engines, etc.)
-- Throughput and UX for writes can be awkward; bundling layers improve this but add complexity
-- Miner concentration and long-term incentive alignment remain open questions
 
 ---
 
@@ -164,7 +138,7 @@ What are the current alternative solutions available? How they are different fro
 ## The Graph
 - Network-level metadata extraction for searchable APIs
 - Economics incentives for indexers/curators
-- Read-only ???
+- Read-only from user perspective
 - No arbitrary data/information (restricted on blockchain data)
 - No marketplace or lineage-royalty mechanics
 - https://messari.io/report/state-of-the-graph-q1-2025
@@ -192,13 +166,14 @@ What are the current alternative solutions available? How they are different fro
 
 ---
 
+
 ## Streamr
 - Producer/consumer roles
 - P2P relay network
 - Monetized access to data streams
     - Use of $DATA token
-    - Earn via sponsorship ???
-    - Incentives for quality via staking yields ???
+    - Operators earn for delivering data reliable (sponsorship)
+    - Publishers can sell the data (API monetization model)
 - No persistent semantic information (restricted to live streams)
 - No ontology-based anti-cloning royalty routing
 
@@ -224,17 +199,17 @@ What are the current alternative solutions available? How they are different fro
 ---
 
 ## AnyLog
-- Research prototype, not fully market-deployed
 - Decentralized publishing + querying structured data (focus on IoT)
 - Publishers upload with custom schemas
 - Contractors store/query in SQL
-- Uses blockchain for metadata ???
-- Discoverability from metadata ???
+- Uses blockchain for metadata and use this metadata for discoverability
+- Dont pay for publish
 - Payment per query/token shared among producers/contractors
-- Incentive reward data that participates in queries (favouring high-quality composable schemas)
+    - Incentive reward data that participates in queries (favouring high-quality composable schemas)
 - Hashing and signatures prevent tamper
 - No relayers/augumentors
 - No preserve incentive via negative price or other mechs
+- Not permissionless
 - Paper from 2019, why not implemented? https://www.cidrdb.org/cidr2020/papers/p9-abadi-cidr20.pdf
     - https://chatgpt.com/share/69245725-e4d4-8012-9fdf-3e9467adacd9
 
@@ -260,32 +235,32 @@ What are the current alternative solutions available? How they are different fro
 
 ---
 
-## Nevermined (AI-Focused Extension of Ocean)
-- Monetizing AI agents APIs/data
-- Chained interactions with agents augment/trade data autonomosly
-- Micropayments per usage (fiat/crypto)
-- No ontology/schema (API only???)
+## Arweave / Permaweb
+- Permanent storage (pay once store forever)
+- Optional pay-on-access (P3)
+- No ontology/schema of data (only blobs)
+- No market composability (redistribution/augumentation)
+- No discoverability
 
 ### 1. Main problem it’s trying to solve
-- Two related problems:
-  1. Monetizing data and AI assets (similar to Ocean’s original vision)
-  2. AI-native payments: enabling AI agents and models to pay each other for API calls, data, and compute with fine-grained metering
-- Existing payment rails are built for human-initiated, coarse-grained transactions, not machine-to-machine micro-payments
+- Long-term preservation of important content (apps, archives, legal records, NFTs) without trusting a single provider
+- Provide a “permanent web” where content and dApp frontends are immutable and always retrievable
+- Optional P3 layer adds monetized pay-per-access on top
 
 ### 2. Did it solve the problem?
-- Provides real infrastructure:
-  - AI/data marketplace
-  - Payment rails and metering designed for AI / API usage
-- But the broader AI-agent commerce ecosystem is still early:
-  - There is no widely accepted standard for agent-to-agent payments yet
-  - Nevermined is one of several contenders rather than the default rails
+- Technically: yes, it offers an immutable, permanent storage layer that is widely used in some ecosystems (e.g., Solana NFTs, archival projects)
+- Economically: “pay once, store forever” is debated; long-term sustainability depends on:
+  - AR token price
+  - Future storage cost curves
+  - Miner incentives over decades
+- It is very strong on permanence, weaker on economic certainty and ethical/regulatory handling of immutable data
 
 ### 3. Main pain points
-- Market immaturity: AI agents and autonomous AI-to-AI payments are still experimental and small-scale
-- Complexity of metering and pricing variable AI workloads (tokens, compute, latency, etc.)
-- Web3 friction: wallet management, volatility, and regulatory issues around crypto payments
-- Overlap and competition with Ocean and other AI/data marketplaces creates fragmentation
-- No deep semantic/ontology layer; focus is more on access control, payments, and APIs than on structured, composable knowledge
+- Potential mismatch between one-time fees and the actual long-term cost to store data forever (unfunded liabilities risk)
+- Immutability conflicts with privacy laws (e.g., right to be forgotten) and takedown obligations for harmful content
+- No native schema or semantic layer; discoverability and composition require external indexing (The Graph-style, search engines, etc.)
+- Throughput and UX for writes can be awkward; bundling layers improve this but add complexity
+- Miner concentration and long-term incentive alignment remain open questions
 
 ---
 
@@ -298,9 +273,8 @@ A few patterns that show up across almost all of these projects:
     - The more decentralized and trustless the system, the more you tend to pay in:
       - Developer complexity (subgraphs, ComposeDB schemas, node ops)
       - Operational overhead (pinning, retrievability strategies, incentive tuning)
-      - Unclear legal responsibility (who removes illegal content from a permanent storage network?)
 3. Token economics are both an enabler and a source of fragility
-    - Filecoin’s miner economics, Arweave’s “unfunded liabilities”, TRAC staking, GRT curation, DATA bounties, OCEAN/NEVERMINED tokens – all make these systems possible, but also expose them to volatility, governance fights, and sometimes misaligned incentives
+    - Filecoin’s miner economics, Arweave’s “unfunded liabilities”, TRAC staking, GRT curation, DATA bounties, OCEAN tokens: all make these systems possible, but also expose them to volatility, governance fights, and sometimes misaligned incentives
 4. Interoperability with mainstream stacks is key
     - Projects that ship good SDKs, GraphQL/SQL interfaces, and clean cloud integrations (e.g., The Graph’s GraphQL, AnyLog’s SQL, Ceramic’s GraphQL via ComposeDB) have an advantage over those that expect devs to work directly with low-level protocols
 
@@ -309,3 +283,4 @@ A few patterns that show up across almost all of these projects:
 ## Contrast with nearest alternatives
 - OriginTrail (semantic + discovery) + Ocean (market) but no native derivative chain
 - Filecoin/Arweave (persistence) + The Graph (indexing) but no schema-first information market
+

@@ -33,6 +33,10 @@
 - Clarify derived royalty mechanics based on producer/augumenter requirements such as price (it depends on their configurations, not random market numbers)
 - A sketch of how "lineage-royalties" works
 - Explain the causal information preserving properties by design
+    - This seems to be a huge differential, must explore better
+        - Bad or useless information will naturally be vanished from the network
+        - Information is only spread into the network when someone have enough interest on it
+        - Never pay to upload and might pay to download
 - Required to have schema + data + ontology (see https://chatgpt.com/share/6925a6c3-999c-8012-a4a2-489de36d3e9c) 
     - Research on how to do it for non text data format
     - Current solutions connecting and visualizing schema, data and ontology: https://grok.com/share/c2hhcmQtMg_43318bdc-137c-4e2b-a469-f76d3792f1b9
@@ -58,13 +62,20 @@
         - Possible spam and/or scale problems
     - Conjectures:
         - A new role in the network for discoverability (need to figure out correct incentives)
+- On incentive systems
+    - Problems:
+        - From where one mine/mint/buy the first tokens?
+        - Do we need token to keep a incentive system well rounded?
+    - Conjectures:
+        - Tokens can be bought from DAO
+        - Tokens are mined based on amount of data uploaded and its deepeness/relationness with the network
 
 
 ## What is novel in this idea?
 - Protocol-level lineage royalty based on semantic/ontology hashing
     - Closest thing to check: NFT/EIP-2981
 - Explicit Augumentor/Relayer/Reseller role with automatic fee composition
-    - Ocean allows new listings and datatokens, Filecoin allows retrieval markets, The Graph allows indexer earnings — but none of these make derived data resale + auto-split payments a first-class, default path. Your “three-way economic stack” feels new
+    - Ocean allows new listings and datatokens, Filecoin allows retrieval markets, The Graph allows indexer earnings.  But none of these make derived data resale + auto-split payments a first-class, default path
     - “Information assets” can be forked, improved, and resold while keeping original producers paid. This is your cleanest novelty claim
 - Negative price as a preservation/spread incentive enforcement for a information
 - "Causal power" as a protocol principle: Only information that someone wants to pay for it will persist and be preserved by the network
